@@ -1,0 +1,127 @@
+<!--
+* Class : SharkShowdown.html
+*   - This class defines the architecture / content used for the  
+*   Biological Simulator. The simulator will emulate an environment
+*   where sharks and minnows inhabit together. The simulator will
+*   display the emulated environment data to a graph as well as
+*   provide statistics about each simulation ran.
+* Author: Cade Almond
+* Date  : 12/16/22
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecological Simulator</title>
+    <!-- Styling -->
+    <link rel="stylesheet" href="SharkShowdown.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&family=Ubuntu&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Source+Sans+Pro:wght@600&family=Ubuntu&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- HERO (First Page) -->
+    <section class="simulation_hero">
+        <h1>Shark</h1>
+        <h2>Shark Showdown</h2>
+        <h3>The ultimate oceanic biological simulator!</h3>
+        <h4>Graph Anything You Want!</h4>
+        <p><span>About : </span>This website is a great way to see the relationship between biological organisms
+            in the ocean, specifically, sharks and minnows. As these populations grow or sink,
+            the other populations will react. Try out a simulation and see for yourself below.
+        </p>
+        <img
+            src="https://images.unsplash.com/photo-1547083723-7c73eaf54cc6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzN8fG9jZWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60 *"></img>
+    </section>
+
+    <!-- Chart / Form Display (Second Page) -->
+    <section class="ecological_hero">
+        <div class="chart">
+            <h1>Population Growth</h1>
+            <canvas id="myChart" class="my_chart"></canvas>
+        </div>
+        <form>
+            <h1 class="title">Create A Graph!</h1>
+            <h2 class="error_label"></h2>
+            <div class="text_field">
+                <input type="text" id="sim_iterations">
+                <label class="label_display">Years</label>
+                <div class="span_display"></div>
+            </div>
+            <div class="text_field">
+                <input type="text" id="shark_pop">
+                <label class="label_display">Shark Population</label>
+                <div class="span_display"></div>
+            </div>
+            <div class="text_field">
+                <input type="text" id="minnow_pop">
+                <label class="label_display">Minnow Population</label>
+                <span class="span_display"></span>
+            </div>
+            <button class="simulation_btn" id="simulation_btn">Create !</button>
+        </form>
+    </section>
+
+    <!-- Tabs (Third Page) -->
+    <div class="stats_container">
+        <!-- Tab Icons -->
+        <div class="icon">
+            <div class="display_label active" data-id="content1">
+                <h1> Average Population Count </h1>
+            </div>
+            <div class="display_label" data-id="content2">
+                <h1> Population Birth Count </h1>
+            </div>
+            <div class="display_label" data-id="content3">
+                <h1> Maximum Population Count </h1>
+            </div>
+            <div class="display_label" data-id="content4">
+                <h1> Extinct Animals </h1>
+            </div>
+        </div>
+        <!-- Tab Content -->
+        <div class="stats_content">
+            <div class="content_display active" id="content1">
+                <div>
+                    <h1 class="text">No data available...</h1>
+                </div>
+            </div>
+            <div class="content_display" id="content2">
+                <div>
+                    <h1 class="text">No data available...</h1>
+                </div>
+            </div>
+            <div class="content_display" id="content3">
+                <div>
+                    <h1 class="text">No data available...</h1>
+                </div>
+            </div>
+            <div class="content_display" id="content4">
+                <div>
+                    <h1 class="text">No data available...</h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer (Last Page) -->
+        <section class="footer">
+            <h1>Oceanic Biological Simulator</h1>
+            <h4> Discover the amazing relationship of two organisms sharks and minnows and
+                how each others population influences one another in an animated graph
+                alongside statistics. Resources used in this project are listed on
+                https://github.com/CadeJAlmond.
+            </h4>
+            <p>@ CADE ALMOND 2022</p>
+        </section>
+
+        <!-- JS Functionality -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="SharkShowdown.js"></script>;
+</body>
+</html>

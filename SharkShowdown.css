@@ -1,0 +1,351 @@
+/*********************************************
+* Class : SharkShowdown.css
+*   - This class provides the design / aesthetics of the website.
+* Author: Cade Almond
+* Date  : 12/16/22
+*********************************************/
+ 
+/***
+* BODY & CLASS
+***/
+ 
+body {
+  margin: 0px;
+  align-items: center;
+  justify-content: center;
+  background-color: #131110;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='charlie-brown' fill='%23222227' fill-opacity='0.33'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+ 
+* {
+  box-sizing: border-box;
+}
+ 
+/***
+* HERO SECTION
+***/
+ 
+.simulation_hero{
+  height: 95vh;
+  width: 100%;
+  background: #eaeaea;
+  padding: 12.5vh 10vw;
+  z-index: -2;
+}
+ 
+.simulation_hero h1{
+  position: absolute;
+  margin-top: 8vh;
+  font-size: 12.85rem;
+  letter-spacing: 1.225rem;
+  opacity: 0.125;
+  z-index: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+ 
+.simulation_hero h2{
+  position: relative;
+  margin-top: 15vh;
+  font-size: 5.5rem;
+  z-index: 1;
+  width: 850px;
+  font-family: 'Poppins', sans-serif;
+}
+ 
+.simulation_hero h3{
+  margin-top: -10vh;
+  margin-bottom: 5vh;
+  font-size: 1.75rem;
+  font-family: 'Ubuntu', sans-serif;
+  color: #bb4c4c;
+}
+ 
+.simulation_hero h4{
+  font-size: 1.15rem;
+  font-family: 'Poppins', sans-serif;
+}
+ 
+.simulation_hero p{
+  width: 550px;
+  margin-top: -2vh;
+  font-family: 'Ubuntu', sans-serif;
+}
+ 
+.simulation_hero p span{
+  color: #bb4c4c;
+  font-size: 1.15em;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+ 
+.simulation_hero img{
+  position: absolute;
+  margin-left: 50vw;
+  top: 25vh;
+  height: 45vh;
+  width: 33vw;
+  border-radius: 16px;
+}
+ 
+/***
+* SIMULATOR FORM / GRAPH SECTION
+***/
+ 
+.ecological_hero {
+  background: rgb(26, 26, 26);
+  border-radius: 13px;
+  width: 100%;
+  max-width: 82.5vw;
+  height: calc(35vh + 320px);
+  margin: 15vh 8.75vw;
+}
+ 
+.ecological_hero form {
+  background: #eaeaea;
+  width: 24vw;
+  min-height: calc(43vh + 300px);
+  margin-left: 55vw;
+  transform: translateY(-2.5vh);
+  border-radius: 8px;
+  padding: calc(1vw + 1vh);
+}
+ 
+.ecological_hero .chart h1{
+  position: absolute;
+  left: calc(38% - 169px);
+  font-size: 2.05rem;
+  font-family: 'Source Sans Pro', 'sans-serif';
+  transform: translateY(-3px);
+  width: 328px;
+  color: #eaeaea;
+}
+ 
+.ecological_hero .title{
+  font-size: 2.5rem;
+  font-family: 'Source Sans Pro', 'sans-serif';
+}
+ 
+.ecological_hero h2{
+  font-size: 1.125rem;
+  font-family: 'Ubuntu', sans-serif;
+  color: #bb4c4c;
+  margin: -20px 0;
+}
+ 
+.ecological_hero .text_field {
+  position: relative;
+  border-bottom: 2px solid #131110;
+  margin: 65px 0;
+  width: 20vw;
+  height: 30px;
+}
+ 
+.text_field input {
+  width: 100%;
+  padding: 0 5px;
+  font-size: 25px;
+  background: #eaeaea;
+  color: #000;
+  font-family: 'Ubuntu', sans-serif;
+  border: none;
+  background: none;
+  outline: none;
+}
+ 
+.ecological_hero label {
+  position: absolute;
+  top: 50%;
+  height: 30px;
+  left: 5px;
+  font-size: 20px;
+  transform: translateY(-20px);
+  color: #adadad;
+  font-family: 'Source Sans Pro', sans-serif;
+  z-index: -1;
+  transition: 0.5s;
+}
+ 
+.ecological_hero .text_field .span_display{
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 0;
+  height: 2px;
+  min-width: 20vw;
+  background-color: black;
+  transition: 0.5s;
+}
+ 
+.ecological_hero .text_field input:focus + .label_display{
+  top: -5px;
+  color: #131110;
+}
+ 
+.ecological_hero .text_field input:focus ~ .span_display{
+  min-width: 20vw;
+  background-color: #bb4c4c;
+}
+ 
+.ecological_hero button {
+  margin: 0 0;
+  transform: translateY(6vh);
+  min-width: 12vw;
+  min-height: 6vh;
+  background: #bb4c4c;
+  border-color: transparent;
+  border-radius: 20px;
+  font-size: 1.125rem;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+ 
+.my_chart {
+  position: absolute;
+  max-width: 55vw;
+  max-height: 70%;
+  padding: 80px 20px 20px 20px;
+}
+ 
+/***
+* STATS SECTION
+***/
+ 
+.stats_container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+ 
+.stats_container::after {
+  position: absolute;
+  content: "";
+  width: 85%;
+  height: 65vh;
+  margin-left: 15%;
+  z-index: -1;
+  background: #eaeaea;
+  border-radius: 15px;
+}
+ 
+.stats_container::before {
+  position: absolute;
+  content: "";
+  width: 85%;
+  height: 1.35vh;
+  left: 15%;
+  margin-top: 63.7vh;
+  background: #bb4c4c;
+  border-radius: 0 0 9px 9px;
+}
+ 
+.stats_container .icon {
+  position: relative;
+  width: 70vw;
+  text-align: center;
+  display: flex;
+  margin: 1vh calc(15vw - 15px);
+}
+ 
+.stats_container .icon .display_label {
+  position: relative;
+  width: calc(50% - 40px);
+  margin: 0 30px 30px 0;
+  padding: 0 25px;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 4px;
+  transition: 0.5s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .17);
+  background: rgb(26, 26, 26);
+  font-size: 14px;
+}
+ 
+.statsContainer .icon .display_label.active {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+}
+ 
+.display_label h1 {
+  color: #bab0b0;
+  max-width: 100%;
+  transition: 0.5s;
+  transform: scale(0.8);
+  font-family: 'Ubuntu', sans-serif;
+}
+ 
+.display_label.active h1 {
+  transition: 0.5s;
+  transform: scale(1);
+  color: #bb4c4c;
+}
+ 
+.stats_content {
+  position: relative;
+  width: 50%;
+  height: 500px;
+  margin: 0 25%;
+  overflow: hidden;
+}
+ 
+.stats_content .content_display {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+  transform: translateY(22vh);
+  opacity: 0;
+  text-align: left;
+}
+ 
+.stats_content .content_display.active {
+  transform: scale(1);
+  opacity: 1;
+  transition-delay: .3s;
+}
+ 
+.stats_content .content_display h1 {
+  padding-bottom: 30px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+ 
+/***
+* FOOTER SECTION
+***/
+ 
+.footer{
+  width: 100%;
+  height: 300px;
+  background: rgb(26, 26, 26);
+  text-align: center;
+  margin-bottom: -15vh;
+}
+ 
+.footer h1{
+  margin-top: 5vh;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #eaeaea;
+  font-size: 2rem;
+}
+ 
+.footer h4{
+  width: 40vw;
+  margin-left: 30vw;
+  color: #eaeaea;
+  opacity: 0.8;
+  font-size: 1.1rem;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-align: left;
+  min-width: 500px;
+  height: 150px;
+}
+ 
+.footer p{
+  background: #eaeaea;
+  color: #bb4c4c;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  height: 30px;
+}
