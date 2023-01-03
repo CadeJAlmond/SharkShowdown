@@ -53,14 +53,13 @@ graphOptions = {
     },
     scales: {
         y: {
-          stacked: true,
           title: { display: true, text: "Population Size", color: "#eaeaea", font: {size: 28,
                    family: "Source Sans Pro",}, padding: {top: -5, bottom: 15}},
           grid: { display: true, color: "rgba(255,99,132,0.2)",},
         },
         x: {
             title: { display: true, text: "Years", color: "#eaeaea", font: {size: 28,
-            family: "Source Sans Pro",}, padding: {top: 15}},
+            family: "Source Sans Pro",}, padding: {top: 35}},
         },
     }
 }
@@ -79,6 +78,8 @@ runSimulation.addEventListener('click', e => {
     sharkDataSet  = [];
     minnowDataSet = [];
     labels = [];
+    bornMinnows = 0;
+    bornSharks  = 0;
 });
  
 /**
@@ -126,11 +127,11 @@ function beginSimulation(iterations, sharks, minnows) {
     // Start simulation
     recordPopulations(-1);
     for (let i = 0; i < iterations; i++) {
-        updatePopulations();
+        updatePopulations(i);
         recordPopulations(i);
         // End loop if a population went extinct
         if (parseInt(minnowPopulation) <= 0 || parseInt(sharkPopulation ) <= 0) {
-            i = iterations;
+            iterations = i  + 1;
             wentExtinct = true;
             break;
         }
@@ -143,7 +144,7 @@ function beginSimulation(iterations, sharks, minnows) {
  * This method will calculate the change in, and update, the population
  * size of the minnows and sharks.
  */
-function updatePopulations() {
+function updatePopulations(i) {
     let changeInMinnows = minnowGrowthRate * minnowPopulation * (1 - minnowPopulation /
         carryCapacity) - (predationRate * minnowPopulation * sharkPopulation);
     let changeInSharks  = (sharkPreyConversion * predationRate * minnowPopulation *
@@ -156,9 +157,6 @@ function updatePopulations() {
  
     minnowPopulation += changeInMinnows;
     sharkPopulation  += changeInSharks ;
-
-    console.log(`SharkPop : ${sharkPopulation} ChangeShark : ${changeInSharks}`);
-    console.log(`MinnowPop : ${minnowPopulation}  ChangeMinnow ${changeInMinnows}`);
  
     if (changeInMinnows > 0)
         bornMinnows += changeInMinnows;
@@ -180,6 +178,7 @@ function recordPopulations(iterations) {
  *  data generated in sharkDataSet and minnowDataSet .
  */
 function renderPageGraph(sharkData, minnowData, labelData, options) {
+
     // Create Styling for graph lines
     var gradient = chart.createLinearGradient(0, 0, 0, 450);
     gradient.addColorStop(0.0, 'rgba(255, 0,0, 0.45)');
@@ -242,7 +241,7 @@ function renderPageStats(iterations, wentExtinct) {
  
     document.getElementById("content2").querySelector('.text').innerHTML = `${yearInfo} The shark birth count was : 
          ${parseInt(bornSharks)} <br>The minnow birth count was ${parseInt(bornMinnows)}`;
- 
+
     let maxMinnow = Math.max(...minnowDataSet);
     let maxShark  = Math.max(...sharkDataSet );
     document.getElementById("content3").querySelector('.text').innerHTML = `${yearInfo} The maximum shark population size was :
@@ -276,6 +275,6 @@ iconBoxs.forEach(icon => icon.addEventListener('mouseover', function () {
 }))
 
 // Load graph on-webiste load
-window.addEventListener('load', () =>{
+window.addEventListener('load', () => {
     renderPageGraph([], [], [], {scales: graphOptions.scales});
 });
